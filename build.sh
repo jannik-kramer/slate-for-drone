@@ -10,10 +10,10 @@ if [ ! -d "$PLUGIN_TARGET" ]; then
   exit 65
 fi
 
-cp -a $PLUGIN_SOURCE /usr/src/app/source
+cp -a $PLUGIN_SOURCE/. /usr/src/app/source
 
 # need to be called in app dir but getting back to previous workdir can be tricky
 # thus, sub-shell
 (cd /usr/src/app; bundle exec middleman build --clean)
 
-cp -a /usr/src/app/bundle/. $PLUGIN_TARGET
+cp -a /usr/src/app/build/. $PLUGIN_TARGET

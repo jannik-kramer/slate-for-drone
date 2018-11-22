@@ -8,6 +8,8 @@ RUN git clone https://github.com/lord/slate .
 
 RUN bundle install
 
+RUN rm -rf /usr/src/app/source/index.html.md
+
 ADD ./build.sh /
 RUN chmod +x /build.sh
 
